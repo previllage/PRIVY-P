@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privy Pink Products</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body style="background-color: plum;">
+
+  <!-- Header and Navigation -->
+  <header>
+    <div class="nav-container" style="position: relative; padding: 10px 20px;">
+      <h1 class="logo" style="color: darkblue;">Privy Pink.</h1>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav id="nav-menu">
+        <a href="../index.html">Home</a>
+        <a href="products.html">Our Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="enquiry.html">Customer Enquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Our Products</h1>
+    <p>Explore our range of natural hair, skin, and fragrance products — all <strong>Made with Love and Care.</strong></p>
+
+    <div class="product-grid">
+
+      <!-- Hair Care -->
+      <div class="product-card">
+        <img src="../assets/hair food 1.jpg" alt="Herbal Hair Food jar">
+        <img src="../assets/2hairfood.jpg" alt="Second jar of Herbal Hair Food">
+        <h3>Herbal Hair Food for Growth</h3>
+        <p>Infused with chebe, rosemary, and clove for strong, healthy hair.</p>
+      </div>
+
+      <!-- Skin Care -->
+      <div class="product-card">
+        <img src="../assets/handlotios2 (2).jpg" alt="Hand Lotion bottle">
+        <img src="../assets/new lotions.jpeg" alt="Hand Lotion bottle">
+        <h3>Hand Lotions</h3>
+        <p>Smooth and hydrate your skin with our silky formula.</p>
+      </div>
+
+      <!-- Perfumes -->
+      <div class="product-card">
+        <img src="../assets/perfumes.jfif" alt="Perfume bottle">
+        <img src="../assets/new perfumes.jpeg" alt="Perfume bottle">
+        <h3>Perfumes</h3>
+        <img src="../assets/2 perfume&handlotion.jpg" alt="Perfume and Hand Lotion set">
+        <h3>Perfume & Hand Lotion Set</h3>
+        <p>Long-lasting fragrance for everyday elegance.</p>
+      </div>
+
+      <!-- Mixed Products -->
+      <div class="product-card">
+        <img src="../assets/prod privy.jfif" alt="Privy Pink full product range">
+        <h3>Hair Foods, Perfumes & Hand Lotions</h3>
+        <p>Quality products <em>Made with Love and Care</em>.</p>
+      </div>
+
+    </div>
+
+    <!-- Map -->
+    <h2>Our Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!...YOUR_MAP_EMBED_LINK_HERE..." allowfullscreen="" loading="lazy"></iframe>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="text-align: center;">&copy; 2025 Privy Pink Company</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="../js/script.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+        navMenu.style.maxHeight = "0";
+      } else {
+        navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+      }
+    });
+  </script>
+</body>
+</html>

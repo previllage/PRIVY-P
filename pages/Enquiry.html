@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Enquiry - Privy Pink</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: plum;">
+
+    <!-- Logo -->
+    <img src="../assets/privy pink image.jfif" alt="Logo" width="300" height="250"> 
+
+    <!-- Navigation -->
+    
+     <!--Header-->
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">Privy Pink.</h1>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>        
+        </div>
+        <!--Navigation menu-->
+        <nav id="nav-menu">  
+            <a href="Enquiry.html">Enquiry</a>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact us</a>
+            <a href="products.html">Our Products</a>
+        </nav> 
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1>Customer Enquiry</h1>
+            
+            <form action="#" method="post">
+                <table>
+                    <tr>
+                        <td width="150">Names</td>
+                        <td><input type="text" name="names" placeholder="Enter your Full Names" required></td>
+                    </tr>
+                    <tr>
+                        <td>Surname</td>
+                        <td><input type="text" name="surname" placeholder="Enter your Surname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" placeholder="Enter your Email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number</td>
+                        <td><input type="tel" name="contact" placeholder="Enter your Contact Number" required></td>
+                    </tr>
+                    <tr> 
+                        <td>Message</td>
+                        <td><textarea cols="25" rows="5" placeholder="Type your message"></textarea></td>   
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"></td> 
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+
+        
+
+    <!-- Footer -->
+    <footer>
+        <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
+    </footer>  
+    <script src="../js/script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+    
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active'); // animate X
+          if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+            navMenu.style.maxHeight = "0";
+          } else {
+            navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+          }
+        });
+      </script>
+    
+</body>
+</html>

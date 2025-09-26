@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Privy Pink</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: plum;">
+
+    <!-- Logo -->
+    <img src="../assets/privy pink image.jfif" alt="Logo" width="200" height="150">
+
+    <!-- Navigation -->
+    
+     <!--Header-->
+    <header>
+        <div class="nav-container">
+            <h1 class="logo">Privy Pink.</h1>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+       
+        </div>
+        <!--Navigation menu-->
+        <nav id="nav-menu">   
+            <a href="contact.html">Contact</a>
+            <a href="../index.html">Home</a>
+            <a href="about.html">About us</a>
+            <a href="enquiry.html">Customer Enquiry</a> 
+            <a href="products.html">Our Products</a>
+        </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <h1>Contact Us</h1>
+        <table>
+            <tr>
+                <td width="150">Cellphone Number:</td>
+                <td>(+27 82 692 0133)</td>
+            </tr>
+            <tr>
+                <td>Physical Address:</td>
+                <td>100 Market Street,<br>Polokwane,<br>0700</td>
+            </tr>
+            <tr> 
+                <td>Email Address:</td>
+                <td><a href="mailto:previllagemunyadziwa@gmail.com">previllagemunyadziwa@gmail.com</a></td>
+            </tr>
+        </table>
+
+        <!-- Embedded Google Map -->
+        <section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.6505339029736!2d29.44757207521576!3d-23.902007778567253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d8252b6edd79%3A0x411d7acea6095137!2s100%20Market%20St%2C%20Polokwane%20Central%2C%20Polokwane%2C%200700%2C%20South%20Africa!5e0!3m2!1sen!2sie!4v1756267480998!5m2!1sen!2sie" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+    </main>
+    
+        
+
+    <!-- Footer -->
+    <footer>
+        <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
+    </footer>  
+    <script src="../js/script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+    
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active'); // animate X
+          if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+            navMenu.style.maxHeight = "0";
+          } else {
+            navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+          }
+        });
+      </script>
+    
+</body>
+</html>
