@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privy Pink Web Page</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <meta name="description" content="Privy Pink - handmade hair oils, creams and lotions. Made with love and care. Order & enquire online." />
-  <meta name="keywords" content="Privy Pink, handmade hair, hair oil, chebe, natural hair products, South Africa" />
-  <meta name="author" content="Privilege Munyadziw Sithagu">
-  <link rel="canonical" href="https://yourusername.github.io/privy-pink/index.html">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color:plum;">
 
@@ -18,9 +13,7 @@
     <header>
         <div class="nav-container">
             <h1 class="logo">Privy Pink.</h1>
-<p class="slogan">Made with love & care — handcrafted hair & body care</p>
-        <p class="cta">
-          </p>
+
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -29,17 +22,17 @@
         <!--Navigation menu-->
         <nav id="nav-menu">
             <h3 style="color: blue;"> 
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="pages/about.html">About us</a></li>
-                <li><a href="pages/contact.html">Contact us</a></li>
-                <li><a href="pages/enquiry.html">Customer Enquiry</a></li> 
-                <li><a href="pages/products.html">Our Products</a></h3></li>
+                <a href="../index.html">Home</a>
+                <a href="pages/about.html">About us</a>
+                <a href="pages/contact.html">Contact us</a>
+                <a href="pages/enquiry.html">Customer Enquiry</a> 
+                <a href="pages/products.html">Our Products</a>
             </h3>
         </nav>
         </div> 
     </header>
 
-    <img src="assets/PRIVY PINK IMAGE.jfif"alt="Logo" width="400" height="350"loading="lazy">
+    <img src="assets/PRIVY PINK IMAGE.jfif"alt="Logo" width="400" height="350">
 
     <p style="color: darkblue;"><em>Made with Love & Care.</em></p>
         
@@ -53,28 +46,26 @@
         </section>
 
     </main>
-<section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          
-        </div>
+
         
-    </section>
-
-  
-  
-  </main>
-<!--footer-->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2025 Privy Pink. Made with love and care.</p>
-      <nav class="footer-nav">
-        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> |
-        <a href="https://wa.me/+27826920133" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+<!--Footer-->
+    <footer>
+        <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
+    </footer>   
+    <script src="../js/script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+    
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active'); // animate X
+          if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+            navMenu.style.maxHeight = "0";
+          } else {
+            navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+          }
+        });
+      </script>
+    
 </body>
 </html>
