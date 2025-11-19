@@ -83,8 +83,64 @@
         <a href="https://wa.me/27710000000" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
     </div>
+
   </footer>
 
+
+  <footer>
+    <p>&copy;  Privy Pink — Made with love & care. |. All rights reserved.
+        <a href="pages/enquiry.html">Contact Us</a> |
+        <span id="datestamp"></span> |
+        <span id="time"></span>
+    </p>
+</footer>
+
+<script>
+  // LIVE DATE
+  function displayDate() {
+    const today = new Date();
+    document.getElementById("datestamp").textContent =
+      "Today's Date: " + today.toDateString();
+  }
+  displayDate();
+
+  // LIVE TIME
+  function displayTime() {
+    const now = new Date();
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+    document.getElementById("time").textContent = h + ":" + m + ":" + s;
+  }
+  setInterval(displayTime, 1000);
+  displayTime();
+
+  // IMAGE PREVIEW
+  const images = document.querySelectorAll(".previewable");
+  const popup = document.getElementById("imgPreview");
+  const popupImg = document.getElementById("previewImg");
+  const closeBtn = document.getElementById("closePreview");
+
+  images.forEach(img => {
+      img.addEventListener("click", () => {
+          popup.style.display = "flex";
+          popupImg.src = img.src;
+      });
+  });
+
+  closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+  });
+
+  popup.addEventListener("click", e => {
+      if (e.target === popup) popup.style.display = "none";
+  });
+</script>
+    </script>
+  </footer>
+
+
+  
   <script src="js/script.js" defer></script>
   <script>
     const hamburger = document.getElementById('hamburger');
