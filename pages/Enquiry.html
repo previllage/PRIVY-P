@@ -7,6 +7,7 @@
   <meta name="description" content="Enquire about Privy Pink products or place an order." />
   <meta name="keywords" content="Privy Pink enquiry, order, hair products, chebe, natural products" />
   <meta name="author" content="Privilege Munyadziwa Sithagu">
+  <!-- NOTE: this path is correct if this file is in pages/enquiry.html -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -25,10 +26,10 @@
       <nav id="nav-menu" class="nav" role="navigation" aria-hidden="true">
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="../pages/about.html">About</a></li>
-          <li><a href="../products.html">Products</a></li>
-          <li><a href="../pages/Enquiry.html">Enquiry</a></li>
-          <li><a href="../pages/">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="enquiry.html" aria-current="page">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -37,7 +38,8 @@
   <!-- Main Content -->
   <main class="container">
     <div class="contact-hero" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
-      <img src="../assets/privy pink logo.jpeg" alt="Privy Pink logo" width="220" height="160" loading="lazy">
+      <!-- rename asset to avoid spaces: assets/privy-pink-logo.jpg -->
+      <img src="../assets/privy-pink-logo.jpg" alt="Privy Pink logo" width="220" height="160" loading="lazy">
       <div>
         <h1>Customer Enquiry</h1>
         <p class="muted">Fill the form below to enquire about products, orders, or market availability.</p>
@@ -47,6 +49,7 @@
     <!-- Enquiry Form -->
     <section class="enquiry-section" aria-labelledby="enquiry-heading" style="margin-top:1rem;">
       <h2 id="enquiry-heading">Enquiry / Order Form</h2>
+
       <form id="enquiryForm" method="post" novalidate>
         <div class="form-grid">
           <div class="form-row">
@@ -99,68 +102,93 @@
     <div class="container footer-inner">
       <p>&copy; <span id="year"></span> Privy Pink — Made with love & care. | <span id="datestamp"></span> | <span id="time"></span></p>
       <nav class="footer-links">
-        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>|
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> |
         <a href="https://wa.me/27710000000" target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-      <nav>
-        <a href="about.html">About Us</a> |
-        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- External site script (adjust path if your repo differs) -->
   <script src="../js/script.js" defer></script>
+
+  <!-- Page-specific JS: DOM-ready, defensive, easy to debug on GitHub Pages -->
   <script>
-    // Live Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Enquiry page loaded — DOM ready');
 
-    // Live Date
-    function displayDate() {
-      const today = new Date();
-      document.getElementById("datestamp").textContent = "Today's Date: " + today.toDateString();
-    }
-    displayDate();
+      // Safe helper to set text only if element exists
+      const setIfExists = (id, txt) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = txt;
+      };
 
-    // Live Time
-    function displayTime() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById("time").textContent = h + ":" + m + ":" + s;
-    }
-    setInterval(displayTime, 1000);
-    displayTime();
+      // Live year/date/time - will also be set by global script.js if present
+      setIfExists('year', new Date().getFullYear());
+      const displayDate = () => setIfExists('datestamp', "Today's Date: " + new Date().toDateString());
+      const displayTime = () => {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2,'0');
+        const m = String(now.getMinutes()).padStart(2,'0');
+        const s = String(now.getSeconds()).padStart(2,'0');
+        setIfExists('time', `${h}:${m}:${s}`);
+      };
+      displayDate();
+      displayTime();
+      setInterval(displayTime, 1000);
 
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !expanded);
-      navMenu.setAttribute('aria-hidden', expanded);
-    });
-
-    // Enquiry form validation
-    const enquiryForm = document.getElementById("enquiryForm");
-    enquiryForm.addEventListener("submit", function(e){
-      e.preventDefault();
-      const name = enquiryForm.name.value.trim();
-      const surname = enquiryForm.surname.value.trim();
-      const email = enquiryForm.email.value.trim();
-      const phone = enquiryForm.phone.value.trim();
-      const product = enquiryForm.product.value;
-      const message = enquiryForm.message.value.trim();
-
-      if(!name || !surname || !email || !phone || !product || !message){
-        alert("Please fill in all required fields before submitting!");
-        return;
+      // Hamburger accessibility toggle (defensive)
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', String(!expanded));
+          navMenu.setAttribute('aria-hidden', String(expanded));
+          // smooth open using maxHeight
+          if (!expanded) navMenu.style.maxHeight = navMenu.scrollHeight + 'px';
+          else navMenu.style.maxHeight = null;
+        });
+      } else {
+        console.warn('hamburger or navMenu not found');
       }
 
-      alert("Thank you for your enquiry! We will get back to you soon.");
-      enquiryForm.reset();
-    });
+      // Enquiry form validation (safe)
+      const enquiryForm = document.getElementById('enquiryForm');
+      const msgEl = document.getElementById('formMessage');
+      if (enquiryForm) {
+        enquiryForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = (enquiryForm.name.value || '').trim();
+          const surname = (enquiryForm.surname.value || '').trim();
+          const email = (enquiryForm.email.value || '').trim();
+          const phone = (enquiryForm.phone.value || '').trim();
+          const product = (enquiryForm.product.value || '').trim();
+          const message = (enquiryForm.message.value || '').trim();
+
+          if (!name || !surname || !email || !phone || !product || !message) {
+            if (msgEl) {
+              msgEl.textContent = 'Please fill in all required fields before submitting!';
+              msgEl.style.color = 'red';
+            } else {
+              alert('Please fill in all required fields before submitting!');
+            }
+            return;
+          }
+
+          // Simulate successful submission
+          if (msgEl) {
+            msgEl.textContent = 'Thank you — your enquiry has been submitted. We will contact you soon.';
+            msgEl.style.color = 'green';
+          } else {
+            alert('Thank you — your enquiry has been submitted. We will contact you soon.');
+          }
+          enquiryForm.reset();
+        });
+      } else {
+        console.warn('enquiryForm not found');
+      }
+
+    }); // DOMContentLoaded
   </script>
 </body>
 </html>
