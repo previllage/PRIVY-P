@@ -1,71 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privy Pink Web Page</title>
-    <link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body style="background-color:plum;">
+<body>
+  <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privy Pink — Handcrafted Hair & Body Care</title>
+  <meta name="description" content="Privy Pink - handmade hair oils, creams and lotions. Made with love and care. Order & enquire online." />
+  <meta name="keywords" content="Privy Pink, handmade hair, hair oil, chebe, natural hair products, South Africa" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
+  <link rel="canonical" href="https://yourusername.github.io/privy-pink/index.html">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Privy Pink home">Privy Pink</a>
 
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
 
-<!--Header-->
-    <header>
-        <div class="nav-container">
-            <h1 class="logo">Privy Pink.</h1>
+      <nav id="nav-menu" class="nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <!--Navigation menu-->
-        <nav id="nav-menu">
-            <h3 style="color: blue;"> 
-                <a href="../index.html">Home</a>
-                <a href="pages/about.html">About us</a>
-                <a href="pages/contact.html">Contact us</a>
-                <a href="pages/enquiry.html">Customer Enquiry</a> 
-                <a href="pages/products.html">Our Products</a>
-            </h3>
-        </nav>
-        </div> 
-    </header>
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <h1>Privy Pink</h1>
+        <p class="slogan">Made with love & care — handcrafted hair & body care</p>
+        <p class="cta">
+          <a class="btn" href="products.html">See Products</a>
+          <a class="btn ghost" href="enquiry.html">Make an Enquiry</a>
+        </p>
+      </div>
+      <div class="hero-right">
+        <!-- rename your image to images/hero.jpg and put in images/ folder -->
+        <img src="images/hero.jpg" alt="Privy Pink product display" width="600" height="420" loading="lazy">
+      </div>
+    </section>
 
-    <img src="assets/PRIVY PINK IMAGE.jfif"alt="Logo" width="400" height="350">
+    <section class="container featured">
+      <h2>Featured products</h2>
+      <div id="productGrid" class="product-grid" aria-live="polite">
+        <!-- product cards injected by js/script.js -->
+      </div>
+    </section>
 
-    <p style="color: darkblue;"><em>Made with Love & Care.</em></p>
-        
-    <main>
-        <!--Section-->
-        <section>
-            <h1 style="text-align: center; color:darkblue;">Welcome to Privy Pink Company</h1>
-            <p style="font-size: large;">
-                Our Privy Pink Company offers hair products, hand lotion and perfumes, naturally made for healthier and richer hair with the best scents. 
-            </p>
-        </section>
+    <section class="container about-snippet">
+      <h2>About Privy Pink</h2>
+      <p>Privy Pink crafts hair and body products using natural ingredients such as olive oil, coconut oil, vitamin E and chebe. Small-batch, lovingly made.</p>
+      <p><a href="about.html">Read more →</a></p>
+    </section>
 
-    </main>
+    <!-- Optional admin/demo area for live feed -->
+    <section class="container live-demo">
+      <h3>Live feed (demo)</h3>
+      <div id="liveFeed" class="live-feed" aria-live="polite"></div>
+    </section>
+  </main>
 
-        
-<!--Footer-->
-    <footer>
-        <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
-    </footer>   
-    <script src="../js/script.js"></script>
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-    
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active'); // animate X
-          if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
-            navMenu.style.maxHeight = "0";
-          } else {
-            navMenu.style.maxHeight = navMenu.scrollHeight + "px";
-          }
-        });
-      </script>
-    
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Privy Pink — Made with love & care.</p>
+      <nav class="footer-links">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/27710000000" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+        navMenu.style.maxHeight = "0";
+      } else {
+        navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+      }
+    });
+  </script>
+</body>
+</html>
+
 </body>
 </html>

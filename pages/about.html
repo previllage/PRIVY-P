@@ -1,46 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Privy Pink</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us — Privy Pink</title>
+  <meta name="description" content="About Privy Pink — handcrafted hair and body products made with natural ingredients. Learn about our founder, values and small-batch process." />
+  <meta name="keywords" content="Privy Pink, about, founder, handmade hair products, chebe, natural products, South Africa" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
+  <link rel="canonical" href="https://yourusername.github.io/privy-pink/about.html">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
   <!-- Header / Navigation -->
-  <header>
-    <div class="nav-container">
-      <h1 class="logo">Privy Pink.</h1>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" aria-label="Privy Pink home">Privy Pink</a>
 
-      <div class="hamburger">
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
 
-      <nav id="nav-menu">
-        <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="enquiry.html">Customer Enquiry</a>
+      <nav id="nav-menu" class="nav" role="navigation" aria-hidden="true">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main>
-    <h1>About Us</h1>
-    <p>Welcome to Privy Pink Company — Made with Love and Care!</p>
-    <img src="../assets/ceo and founder priv.jfif" alt="Founder">
+  <main class="container">
+    <article class="about-page">
+      <h1>About Privy Pink</h1>
+
+      <section class="about-intro">
+        <p>Privy Pink is a small-batch, home-based business creating natural hair and body products. We use carefully selected ingredients — olive oil, coconut oil, vitamin E, rosemary and chebe — to make products that nourish hair and skin. Our mission is to provide affordable, effective and lovingly-made products.</p>
+      </section>
+
+      <section class="founder grid">
+        <div class="person-card">
+          <img src="../assets/CEO AND FOUNDER PRIV.jfif" alt="Privilege Munyadziw Sithagu — Founder of Privy Pink" width="400" height="350" loading="lazy">
+          <h3>Privilege Munyadziw Sithagu</h3>
+          <p class="muted">Founder & CEO</p>
+          <p>Founder of Privy Pink. Privilege started making hair products to help her family and community and now sells at markets and online.</p>
+        </div>
+
+        <div class="person-card">
+          <img src="../assets/COworker Leon.jfif" alt="Leon Malatji — Co-worker at Privy Pink" width="400" height="350" loading="lazy">
+          <h3>Leon Malatji</h3>
+          <p class="muted">Co-worker</p>
+          <p>Leon assists with production and market sales, helping scale the small-batch process and customer service.</p>
+        </div>
+      </section>
+
+      <section class="values">
+        <h2>Our Values</h2>
+        <ul>
+          <li>Natural ingredients</li>
+          <li>Small-batch quality</li>
+          <li>Community-focused</li>
+          <li>Honest, affordable pricing</li>
+        </ul>
+      </section>
+    </article>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Privy Pink Company</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Privy Pink — Made with love & care. | <span id="datestamp"></span> | <span id="time"></span></p>
+      <nav>
+        <a href="enquiry.html">Enquiry</a> |
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
   </footer>
 
-  <script src="../js/script.js"></script>
+  <!-- Script -->
+  <script src="../js/script.js" defer></script>
+  <script>
+    // Display current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Display Date
+    function displayDate() {
+      const today = new Date();
+      document.getElementById("datestamp").textContent = "Today's Date: " + today.toDateString();
+    }
+    displayDate();
+
+    // Display Time
+    function displayTime() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("time").textContent = h + ":" + m + ":" + s;
+    }
+    setInterval(displayTime, 1000);
+    displayTime();
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navMenu.setAttribute('aria-hidden', expanded);
+    });
+  </script>
 </body>
 </html>
+

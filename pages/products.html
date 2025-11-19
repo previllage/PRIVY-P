@@ -3,42 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privy Pink Products</title>
+  <title>Products — Privy Pink</title>
+  <meta name="description" content="Explore Privy Pink's natural hair, skin, and fragrance products, all handcrafted with love and care." />
+  <meta name="keywords" content="Privy Pink, products, hair care, perfumes, hand lotions, chebe, natural products" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
   <link rel="stylesheet" href="../css/style.css">
-
 </head>
-<body style="background-color: plum;">
+<body>
 
-  <!-- Header and Navigation -->
-  <header>
-    <div class="nav-container" style="position: relative; padding: 10px 20px;">
-      <h1 class="logo" style="color: darkblue;">Privy Pink.</h1>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" aria-label="Privy Pink home">Privy Pink</a>
 
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger">
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
 
-      <!-- Navigation Menu -->
-      <nav id="nav-menu">
-        <a href="../index.html">Home</a>
-        <a href="products.html">Our Products</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="enquiry.html">Customer Enquiry</a>
+      <nav id="nav-menu" class="nav" role="navigation" aria-hidden="true">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html" aria-current="page">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main class="container">
     <h1>Our Products</h1>
-    <p>Explore our range of natural hair, skin, and fragrance products — all <strong>Made with Love and Care.</strong></p>
+    <p>Explore our range of natural hair, skin, and fragrance products — all <strong>Made with Love and Care</strong>.</p>
 
     <div class="product-grid">
-
       <!-- Hair Care -->
       <div class="product-card">
         <img src="../assets/hair food 1.jpg" alt="Herbal Hair Food jar">
@@ -60,8 +61,6 @@
         <img src="../assets/perfumes.jfif" alt="Perfume bottle">
         <img src="../assets/new perfumes.jpeg" alt="Perfume bottle">
         <h3>Perfumes</h3>
-        <img src="../assets/2 perfume&handlotion.jpg" alt="Perfume and Hand Lotion set">
-        <h3>Perfume & Hand Lotion Set</h3>
         <p>Long-lasting fragrance for everyday elegance.</p>
       </div>
 
@@ -71,33 +70,51 @@
         <h3>Hair Foods, Perfumes & Hand Lotions</h3>
         <p>Quality products <em>Made with Love and Care</em>.</p>
       </div>
-
     </div>
-
-    <!-- Map -->
-    <h2>Our Location</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!...YOUR_MAP_EMBED_LINK_HERE..." allowfullscreen="" loading="lazy"></iframe>
-
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p style="text-align: center;">&copy; 2025 Privy Pink Company</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Privy Pink — Made with love & care. | <span id="datestamp"></span> | <span id="time"></span></p>
+      <nav>
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 
-  <!-- JS -->
-  <script src="../js/script.js"></script>
+  <!-- Scripts -->
+  <script src="../js/script.js" defer></script>
   <script>
+    // Live Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Live Date
+    function displayDate() {
+      const today = new Date();
+      document.getElementById("datestamp").textContent = "Today's Date: " + today.toDateString();
+    }
+    displayDate();
+
+    // Live Time
+    function displayTime() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("time").textContent = h + ":" + m + ":" + s;
+    }
+    setInterval(displayTime, 1000);
+    displayTime();
+
+    // Hamburger toggle
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
-        navMenu.style.maxHeight = "0";
-      } else {
-        navMenu.style.maxHeight = navMenu.scrollHeight + "px";
-      }
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navMenu.setAttribute('aria-hidden', expanded);
     });
   </script>
 </body>

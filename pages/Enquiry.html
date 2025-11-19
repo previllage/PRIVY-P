@@ -1,95 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Enquiry - Privy Pink</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enquiry — Privy Pink</title>
+  <meta name="description" content="Enquire about Privy Pink products or place an order." />
+  <meta name="keywords" content="Privy Pink enquiry, order, hair products, chebe, natural products" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body style="background-color: plum;">
 
-    <!-- Logo -->
-    <img src="../assets/privy pink image.jfif" alt="Logo" width="300" height="250"> 
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo" aria-label="Privy Pink home">Privy Pink</a>
 
-    <!-- Navigation -->
-    
-     <!--Header-->
-    <header>
-        <div class="nav-container">
-            <h1 class="logo">Privy Pink.</h1>
+      <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>        
+      <nav id="nav-menu" class="nav" role="navigation" aria-hidden="true">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="enquiry.html" aria-current="page">Enquiry</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="contact-hero" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+      <img src="../assets/privy pink logo.jpeg" alt="Privy Pink logo" width="220" height="160" loading="lazy">
+      <div>
+        <h1>Customer Enquiry</h1>
+        <p class="muted">Fill the form below to enquire about products, orders, or market availability.</p>
+      </div>
+    </div>
+
+    <!-- Enquiry Form -->
+    <section class="enquiry-section" aria-labelledby="enquiry-heading" style="margin-top:1rem;">
+      <h2 id="enquiry-heading">Enquiry / Order Form</h2>
+      <form id="enquiryForm" method="post" novalidate>
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required minlength="2" placeholder="Your full name">
+          </div>
+
+          <div class="form-row">
+            <label for="surname">Surname</label>
+            <input id="surname" name="surname" type="text" required placeholder="Your surname">
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone (WhatsApp)</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" required placeholder="+27 82 692 0133">
+          </div>
+
+          <div class="form-row full">
+            <label for="product">Product of interest</label>
+            <select id="product" name="product" required>
+              <option value="">-- Select product --</option>
+              <option>Olive & Rosemary Hair Oil</option>
+              <option>Chebe Growth Cream</option>
+              <option>Rose Perfume</option>
+            </select>
+          </div>
+
+          <div class="form-row full">
+            <label for="message">Message / Order details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Give details about quantities, delivery or special requests"></textarea>
+          </div>
+
+          <div class="form-row full">
+            <button type="submit" class="btn">Submit Enquiry</button>
+          </div>
         </div>
-        <!--Navigation menu-->
-        <nav id="nav-menu">  
-            <a href="Enquiry.html">Enquiry</a>
-            <a href="../index.html">Home</a>
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact us</a>
-            <a href="products.html">Our Products</a>
-        </nav> 
-        </div>
-    </header>
+      </form>
 
-    <!-- Main Content -->
-    <main>
-        <section>
-            <h1>Customer Enquiry</h1>
-            
-            <form action="#" method="post">
-                <table>
-                    <tr>
-                        <td width="150">Names</td>
-                        <td><input type="text" name="names" placeholder="Enter your Full Names" required></td>
-                    </tr>
-                    <tr>
-                        <td>Surname</td>
-                        <td><input type="text" name="surname" placeholder="Enter your Surname" required></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="email" name="email" placeholder="Enter your Email" required></td>
-                    </tr>
-                    <tr>
-                        <td>Contact Number</td>
-                        <td><input type="tel" name="contact" placeholder="Enter your Contact Number" required></td>
-                    </tr>
-                    <tr> 
-                        <td>Message</td>
-                        <td><textarea cols="25" rows="5" placeholder="Type your message"></textarea></td>   
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="Submit"></td> 
-                    </tr>
-                </table>
-            </form>
-        </section>
-    </main>
+      <div id="formMessage" aria-live="polite" style="margin-top:1rem;"></div>
+    </section>
+  </main>
 
-        
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Privy Pink — Made with love & care. | <span id="datestamp"></span> | <span id="time"></span></p>
+      <nav>
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
-    </footer>  
-    <script src="../js/script.js"></script>
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-    
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active'); // animate X
-          if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
-            navMenu.style.maxHeight = "0";
-          } else {
-            navMenu.style.maxHeight = navMenu.scrollHeight + "px";
-          }
-        });
-      </script>
-    
+  <!-- Scripts -->
+  <script src="../js/script.js" defer></script>
+  <script>
+    // Live Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Live Date
+    function displayDate() {
+      const today = new Date();
+      document.getElementById("datestamp").textContent = "Today's Date: " + today.toDateString();
+    }
+    displayDate();
+
+    // Live Time
+    function displayTime() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("time").textContent = h + ":" + m + ":" + s;
+    }
+    setInterval(displayTime, 1000);
+    displayTime();
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navMenu.setAttribute('aria-hidden', expanded);
+    });
+
+    // Enquiry form validation
+    const enquiryForm = document.getElementById("enquiryForm");
+    enquiryForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = enquiryForm.name.value.trim();
+      const surname = enquiryForm.surname.value.trim();
+      const email = enquiryForm.email.value.trim();
+      const phone = enquiryForm.phone.value.trim();
+      const product = enquiryForm.product.value;
+      const message = enquiryForm.message.value.trim();
+
+      if(!name || !surname || !email || !phone || !product || !message){
+        alert("Please fill in all required fields before submitting!");
+        return;
+      }
+
+      alert("Thank you for your enquiry! We will get back to you soon.");
+      enquiryForm.reset();
+    });
+  </script>
 </body>
 </html>
