@@ -4,43 +4,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Privy Pink</title>
+  <meta name="description" content="About Privy Pink — handcrafted hair and body products made with natural ingredients. Learn about our founder, values and small-batch process." />
+  <meta name="keywords" content="Privy Pink, about, founder, handmade hair products, chebe, natural products, South Africa" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
+  <link rel="canonical" href="https://yourusername.github.io/privy-pink/about.html">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
   <!-- Header / Navigation -->
-  <header>
-    <div class="nav-container">
+  <header class="site-header">
+      <div class="nav-container">
       <h1 class="logo">Privy Pink.</h1>
 
-      <div class="hamburger">
+      <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
       <nav id="nav-menu">
-        <a href="../index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="enquiry.html">Customer Enquiry</a>
+        <ul>
+       <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html"aria-current="page"> About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li></li><a href="contact.html">Contact Us</a></li>
+        <li><a href="enquiry.html">Customer Enquiry</a></li>
+        </ul>
       </nav>
     </div>
   </header>
+  
 
   <!-- Main Content -->
   <main>
     <h1>About Us</h1>
     <p>Welcome to Privy Pink Company — Made with Love and Care!</p>
-    <img src="../assets/ceo and founder priv.jfif" alt="Founder">
+   
+    <section class="founder-grid">
+    <div class="person-card">
+  <img src="../assets/ceo and founder priv.jfif" alt="Founder"width="400" height="350" loading="lazy">
+  <p style="color:darkblue">Sithagu Munyadziwa Previllage.</p>
+<p class="muted" style="color: darkblue;"">CEO and Fuonder of Privy Pink Company.</p>
+<p>Founder of Privy Pink. Privilege started making hair products to help her family and community and now sells at markets and online.</p>
+ </div>
+<div class="person-card">
+  <img src="/assets/COworker Leon.jfif" alt="Founder"width="400" height="350" loading="lazy">
+  <p style="color: darkblue;">Leon Malatji</p>
+  <p class="muted" style="color: darkblue;">CO Worker of Privy Pink.</p>
+<p>Leon assists with production and market sales, helping scale the small-batch process and customer service.</p>
+</div>
+</section>
+
+<section class="values">
+  <h2>Our Values</h2>
+        <ul>
+          <li>Natural ingredients</li>
+          <li>Small-batch quality</li>
+          <li>Community-focused</li>
+          <li>Honest, affordable pricing</li>
+        </ul>
+</section>
+
+<section>
+
+</section>
   </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Privy Pink Company</p>
   </footer>
+<script src="../js/script.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-  <script src="../js/script.js"></script>
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      if (navMenu.style.maxHeight && navMenu.style.maxHeight !== "0px") {
+        navMenu.style.maxHeight = "0";
+      } else {
+        navMenu.style.maxHeight = navMenu.scrollHeight + "px";
+      }
+    });
+</script>
 </body>
 </html>

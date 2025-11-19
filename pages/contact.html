@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Privy Pink</title>
+<meta name="description" content="Contact Privy Pink for orders, enquiries and market locations. Phone, email and map included." />
+  <meta name="keywords" content="Privy Pink contact, phone, email, Polokwane, hair products" />
+  <meta name="author" content="Privilege Munyadziw Sithagu">
+  <link rel="canonical" href="https://yourusername.github.io/privy-pink/contact.html">    
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body style="background-color: plum;">
@@ -26,18 +30,27 @@
         </div>
         <!--Navigation menu-->
         <nav id="nav-menu">   
-            <a href="contact.html">Contact</a>
-            <a href="../index.html">Home</a>
-            <a href="about.html">About us</a>
-            <a href="enquiry.html">Customer Enquiry</a> 
-            <a href="products.html">Our Products</a>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+           <li><a href="enquiry.html">Customer Enquiry</a></li>
+            <li><a href="products.html">Our Products</a></li>
         </nav>
         </div>
     </header>
-    
+<main class="container">
+    <!-- Logo / hero -->
+    <div class="contact-hero" style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+      <div>
+        <p class="muted">Questions about products, markets or orders? Get in touch via WhatsApp, email or the contact form below.</p>
+      </div>
+    </div>    
     <!-- Main Content -->
     <main>
-        <h1>Contact Us</h1>
+        
+        <section class="contact-details" aria-labelledby="contact-details-heading" style="margin-top:1rem;">
+      <h2 id="contact-details-heading">Contact Details</h2>
+    
         <table>
             <tr>
                 <td width="150">Cellphone Number:</td>
@@ -60,15 +73,46 @@
             </iframe>
         </section>
     </main>
-    
+    <main>
+        <section>
+            <h1>Contact us</h1>
+            
+            <form action="#" method="post">
+                <table>
+                    
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" placeholder="Enter your Email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number</td>
+                        <td><input type="tel" name="contact" placeholder="Enter your Contact Number" required></td>
+                    </tr>
+                    <tr> 
+                        <td>Message</td>
+                        <td><textarea cols="25" rows="5" placeholder="Type your message"></textarea></td>   
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"></td> 
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
         
 
     <!-- Footer -->
     <footer>
         <p style="text-align: center">&copy; 2025 Privy Pink Company</p>
+        <nav class="footer-nav">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> |
+        <a href="https://wa.me/+27826920133" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </footer>  
     <script src="../js/script.js"></script>
     <script>
+        
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
     
